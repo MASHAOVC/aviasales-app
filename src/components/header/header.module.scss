@@ -1,4 +1,14 @@
 .header {
     display: flex;
     justify-content: center;
+    margin-bottom: 30px; //  According to the layout, there should be 50px of space
+                         //  at the bottom from the logo in header, but the layout 
+                         //  does not take into account shadows of the logo, only 
+                         //  the oval. The image is exported from Figma with shadows, 
+                         //  so it actually turns out to be larger. As a result, the  
+                         //  margin is set taking into account this space for shadows, 
+                         //  so that in the end the visual display of the logo and  
+                         //  the space between the logo and the main content matches 
+                         //  the layout.
+                         
 }

@@ -3,12 +3,21 @@
 .app {
     background-color: $color-base-secondary;
     height: 100%;
-    padding-top: 41px; //According to the layout, there should be 50px of space
+    padding-top: 41px; //  According to the layout, there should be 50px of space
                        //  at the top, but the layout does not take into account 
                        //  shadows, only the oval. The image is exported from
                        //  Figma with shadows, so it actually turns out to be larger. 
                        //  As a result, the padding is set taking into account this 
                        //  space for shadows, so that in the end the visual display 
                        //  of the logo matches the layout.
+    padding-bottom: 50px;
+    
+    .page-content-wrapper {
+        display: flex;
+    }
 
+    .page-right-wrapper {
+        display: flex;
+        flex-direction: column;
+    }
 }

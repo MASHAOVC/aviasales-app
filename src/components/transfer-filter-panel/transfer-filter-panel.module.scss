@@ -1,0 +1,19 @@
+@import '../../scss/variables';
+
+.transfer-filter-panel {
+    width: 232px;
+    height: 252px;
+    background-color: $color-base;
+    border-radius: 5px;
+    box-shadow: 0 2px 8px $color-shadow;
+    padding: 20px 0 20px 20px;
+
+    .heading {
+        font-size: $font-size-sm;
+        line-height: 12px;
+        letter-spacing: 0.5px;
+        color: $color-text;
+        font-weight: 600;
+        margin: 0;
+    }
+}

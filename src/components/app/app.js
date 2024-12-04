@@ -4,16 +4,18 @@ import Header from '../header';
 import TransferFilterPanel from '../transfer-filter-panel';
 import SortingPanel from '../sorting-panel';
 import TicketsList from '../tickets-list';
-import Footer from '../footer';
 
 export const App = () => {
   return (
-    <section className={styles.app}>
+    <section className={styles['app']}>
       <Header />
-      <TransferFilterPanel />
-      <SortingPanel />
-      <TicketsList />
-      <Footer />
+      <div className={styles['page-content-wrapper']}>
+        <TransferFilterPanel />
+        <div className={styles['page-right-wrapper']}>
+          <SortingPanel />
+          <TicketsList />
+        </div>
+      </div>
     </section>
   );
 };

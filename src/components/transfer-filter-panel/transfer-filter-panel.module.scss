@@ -4,16 +4,60 @@
     width: 232px;
     height: 252px;
     background-color: $color-base;
+    color: $color-text;
     border-radius: 5px;
     box-shadow: 0 2px 8px $color-shadow;
-    padding: 20px 0 20px 20px;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
 
     .heading {
         font-size: $font-size-sm;
         line-height: 12px;
         letter-spacing: 0.5px;
-        color: $color-text;
         font-weight: 600;
         margin: 0;
+        margin-left: 20px;
+        margin-bottom: 10px;
+    }
+
+    .check {
+        display: flex;
+        gap: 10px;
+        font-size: 13px;
+        line-height: 20px;
+        padding: 10px 0 10px 20px;
+        align-items: center;
+
+        &:hover {
+            background-color: $color-hover;
+            cursor: url('../../assets/icons/Cursor.svg'), pointer;
+        }
+    }
+
+    .check__input {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+
+        &:checked + .check__box {
+            background: url('../../assets/icons/Check-icon.svg') no-repeat center;
+            border: 1px solid $color-brand;
+        }
+
+        &:focus-visible + .check__box {
+            border: 1px solid $color-brand;
+        }
+    }
+
+    .check__box {
+        width: 20px;
+        height: 20px;
+        border-radius: 2px;
+        border: 1px solid $color-border-checkbox;
+        box-sizing: border-box;
     }
 }

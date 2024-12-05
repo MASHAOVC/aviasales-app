@@ -14,10 +14,13 @@
     
     .page-content-wrapper {
         display: flex;
+        gap: 20px;
+        justify-content: center;
     }
 
     .page-right-wrapper {
         display: flex;
         flex-direction: column;
+        gap: 20px;
     }
 }

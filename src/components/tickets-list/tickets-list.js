@@ -5,7 +5,11 @@ import TicketsListButton from '../tickets-list-button';
 
 export const TicketsList = () => {
   return (
-    <div>
+    <div className={styles['tickets-list']}>
+      <Ticket />
+      <Ticket />
+      <Ticket />
+      <Ticket />
       <Ticket />
       <TicketsListButton />
     </div>

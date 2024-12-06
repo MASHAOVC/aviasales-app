@@ -1,0 +1,36 @@
+@import '../../scss/variables';
+
+.ticket {
+    width: 100%;
+    height: 184px;
+    padding: 20px;
+    background-color: $color-base;
+    box-sizing: border-box;
+    border-radius: 5px;
+    box-shadow: 0 2px 8px $color-shadow;
+
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 36px;
+
+        .price {
+            color: $color-brand;
+            font-weight: $font-weight-semibold;
+            font-size: $font-size-lg;
+            line-height: 24px;
+        }
+
+        .carrier-logo {
+            width: 110px;
+            height: 36px;
+        }
+    }
+
+    .direction-segments {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+}

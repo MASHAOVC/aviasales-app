@@ -1,0 +1,47 @@
+@import '../../scss/variables';
+
+.sorting-panel {
+    display: flex;
+    font-size: $font-size-sm;
+    letter-spacing: 0.5px;
+    color: $color-text;
+    font-weight: 600;
+
+    .radio {
+        &:first-of-type .radio__button {
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+            border-right: none;
+        }
+
+        &:last-of-type .radio__button {
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+            border-left: none;
+        }
+    }
+
+    .radio__input {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+
+        &:checked + .radio__button {
+            background-color: $color-brand;
+            border: 1px solid $color-brand;
+            color: $color-base;
+        }
+    }
+
+    .radio__button {
+        width: 168px;
+        height: 50px;
+        border: 1px solid $color-border;
+        background-color: $color-base;
+        display: flex;
+        justify-content: center;
+        align-items: center; 
+    }
+}

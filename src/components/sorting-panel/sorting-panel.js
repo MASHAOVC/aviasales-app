@@ -1,26 +1,20 @@
 import styles from './sorting-panel.module.scss';
-import { Flex, Radio } from 'antd';
-
-const buttonStyle = {
-  width: 168,
-  height: 50,
-  fontSize: 12,
-};
 
 export const SortingPanel = () => {
   return (
-    <Flex>
-      <Radio.Group defaultValue="the cheapest">
-        <Radio.Button style={buttonStyle} value="the cheapest">
-          САМЫЙ ДЕШЁВЫЙ
-        </Radio.Button>
-        <Radio.Button style={buttonStyle} value="the fastest">
-          САМЫЙ БЫСТРЫЙ
-        </Radio.Button>
-        <Radio.Button style={buttonStyle} value="optimal">
-          ОПТИМАЛЬНЫЙ
-        </Radio.Button>
-      </Radio.Group>
-    </Flex>
+    <form className={styles['sorting-panel']}>
+      <label className={styles['radio']}>
+        <input className={styles['radio__input']} type="radio" name="sort-option" value="the cheapest" />
+        <span className={styles['radio__button']}>САМЫЙ ДЕШЁВЫЙ</span>
+      </label>
+      <label className={styles['radio']}>
+        <input className={styles['radio__input']} type="radio" name="sort-option" value="the fastest" />
+        <span className={styles['radio__button']}>САМЫЙ БЫСТРЫЙ</span>
+      </label>
+      <label className={styles['radio']}>
+        <input className={styles['radio__input']} type="radio" name="sort-option" value="optimal" />
+        <span className={styles['radio__button']}>ОПТИМАЛЬНЫЙ</span>
+      </label>
+    </form>
   );
 };

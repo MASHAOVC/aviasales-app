@@ -1,13 +1,13 @@
 import styles from './tickets-list.module.scss';
 
 import Ticket from '../ticket';
-import Footer from '../footer';
+import TicketsListButton from '../tickets-list-button';
 
 export const TicketsList = () => {
   return (
     <div>
       <Ticket />
-      <Footer />
+      <TicketsListButton />
     </div>
   );
 };

@@ -1,0 +1,27 @@
+@import '../../scss/variables';
+
+.direction-segment {
+    display: flex;
+    gap: 20px;
+
+    .group {
+        width: 141px;
+        height: 39px;
+
+        .heading {
+            font-size: $font-size-sm;
+            color: $color-text-secondary;
+            letter-spacing: 0.5px;
+            line-height: 18px;
+            font-weight: $font-weight-semibold;
+            margin: 0;
+        }
+
+        .content {
+            font-size: $font-size-md;
+            color: $color-text;
+            line-height: 21px;
+            font-weight: $font-weight-semibold;
+        }
+    }
+}

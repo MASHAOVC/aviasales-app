@@ -1,3 +1,5 @@
+@import '../../scss/variables';
+
 .header {
     display: flex;
     justify-content: center;
@@ -10,5 +12,8 @@
                          //  so that in the end the visual display of the logo and  
                          //  the space between the logo and the main content matches 
                          //  the layout.
-                         
+
+    @media screen and (min-width: $screen-sm) and (max-width: $screen-md) {
+    margin-bottom: 25px;
+    }                     
 }

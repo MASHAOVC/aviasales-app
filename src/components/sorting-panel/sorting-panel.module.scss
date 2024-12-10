@@ -7,7 +7,16 @@
     color: $color-text;
     font-weight: $font-weight-semibold;
 
+    @media screen and (min-width: $screen-sm) and (max-width: $screen-md) {
+        justify-content: center;
+        font-size: $font-size-xs;
+    }
+
     .radio {
+        @media screen and (min-width: $screen-sm) and (max-width: $screen-md) {
+            flex-grow: 1;
+        }
+
         &:first-of-type .radio__button {
             border-top-left-radius: 5px;
             border-bottom-left-radius: 5px;
@@ -44,6 +53,11 @@
         justify-content: center;
         align-items: center; 
         box-sizing: border-box;
+
+        @media screen and (min-width: $screen-sm) and (max-width: $screen-md) {
+            width: unset;
+            padding: 15px;
+        }
 
         &:hover {
             cursor: url('../../assets/icons/Cursor.svg'), pointer;

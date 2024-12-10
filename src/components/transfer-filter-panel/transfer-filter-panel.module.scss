@@ -12,6 +12,10 @@
     flex-direction: column;
     box-sizing: border-box;
 
+    @media screen and (min-width: $screen-sm) and (max-width: $screen-md) {
+        width: 100%;
+    }
+
     .heading {
         font-size: $font-size-sm;
         line-height: 12px;

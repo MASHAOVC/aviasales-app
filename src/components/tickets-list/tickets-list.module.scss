@@ -1,5 +1,11 @@
+@import '../../scss/variables';
+
 .tickets-list {
     display: flex;
     flex-direction: column;
     gap: 20px;
+
+    @media screen and (min-width: $screen-sm) and (max-width: $screen-md) {
+        gap: 10px;
+    }
 }

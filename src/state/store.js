@@ -1,13 +1,13 @@
-import { configureStore } from '@reduxjs/toolkit';
+import { configureStore, bindActionCreators } from '@reduxjs/toolkit';
 
-const reducer = (state = 0, action) => {
-  switch (action.type) {
-    case 'INC':
-      return state + 1;
-
-    default:
-      return state;
-  }
-};
+import { reducer } from './reducer';
+import * as actions from './actions';
 
 const store = configureStore({ reducer });
+const { dispatch } = store;
+
+const { act } = bindActionCreators(actions, dispatch);
+
+const update = () => {};
+
+store.subscribe(update);

@@ -5,12 +5,7 @@ import TransferFilterPanel from '../transfer-filter-panel';
 import SortingPanel from '../sorting-panel';
 import TicketsList from '../tickets-list';
 
-import { useDispatch, useSelector } from 'react-redux';
-
 export const App = () => {
-  const dispatch = useDispatch();
-  const value = useSelector((state) => state.value);
-
   return (
     <section className={styles['app']}>
       <Header />

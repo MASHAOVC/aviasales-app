@@ -1,6 +1,11 @@
-import { configureStore, bindActionCreators } from '@reduxjs/toolkit';
+import { configureStore, combineReducers } from '@reduxjs/toolkit';
 
-import { reducer } from './reducer';
-import * as actions from './actions';
+import { sortingReducer } from './reducers/sortingReducer';
+import { filterReducer } from './reducers/filterReducer';
 
-export const store = configureStore({ reducer });
+const mainReducer = combineReducers({
+  sorting: sortingReducer,
+  filter: filterReducer,
+});
+
+export const store = configureStore({ reducer: mainReducer });

@@ -1,8 +1,8 @@
 const initialState = {
   all: false,
-  nonStop: false,
-  oneStop: false,
-  twoStops: false,
+  nonStop: true,
+  oneStop: true,
+  twoStops: true,
   threeStops: false,
 };
 

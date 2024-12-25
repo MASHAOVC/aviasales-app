@@ -4,14 +4,45 @@ export const DirectionSegment = (props) => {
   const { origin, destination, date, duration, stops } = props;
 
   const formatDepartureTime = () => {
-    const newDate = new Date(date);
+    const departureDate = new Date(date);
 
-    const hours = String(newDate.getHours()).padStart(2, '0');
-    const minutes = String(newDate.getMinutes()).padStart(2, '0');
+    const hours = String(departureDate.getHours()).padStart(2, '0');
+    const minutes = String(departureDate.getMinutes()).padStart(2, '0');
 
-    const formattedTime = `${hours}:${minutes}`;
+    return `${hours}:${minutes}`;
+  };
 
-    return formattedTime;
+  const formatDurationTime = () => {
+    const hours = String(Math.floor(duration / 60)).padStart(2, '0');
+    const minutes = String(duration % 60).padStart(2, '0');
+
+    return `${hours}ч ${minutes}м`;
+  };
+
+  const calculateArrivalTime = () => {
+    const departureDate = new Date(date);
+
+    departureDate.setMinutes(departureDate.getMinutes() + duration);
+
+    const hours = String(departureDate.getHours()).padStart(2, '0');
+    const minutes = String(departureDate.getMinutes()).padStart(2, '0');
+
+    return `${hours}:${minutes}`;
+  };
+
+  //It is necessary to add logic for taking
+  //into account time zones in accordance with
+  //IATA codes in the formatting of departure
+  //and arrival times.
+
+  const getStops = () => {
+    if (stops.length === 1) {
+      return `${stops.length} ПЕРЕСАДКА`;
+    } else if (stops.length >= 2 && stops.length <= 4) {
+      return `${stops.length} ПЕРЕСАДКИ`;
+    } else {
+      return `${stops.length} ПЕРЕСАДОК`;
+    }
   };
 
   return (
@@ -20,15 +51,17 @@ export const DirectionSegment = (props) => {
         <h2 className={styles['heading']}>
           {origin} – {destination}
         </h2>
-        <span className={styles['content']}>{formatDepartureTime()} – 8:00</span>
+        <span className={styles['content']}>
+          {formatDepartureTime()} – {calculateArrivalTime()}
+        </span>
       </span>
       <span className={styles['group']}>
         <h2 className={styles['heading']}>В ПУТИ</h2>
-        <span className={styles['content']}>21ч 15м</span>
+        <span className={styles['content']}>{formatDurationTime()}</span>
       </span>
       <span className={styles['group']}>
-        <h2 className={styles['heading']}>2 ПЕРЕСАДКИ</h2>
-        <span className={styles['content']}>HKG, JNB</span>
+        <h2 className={styles['heading']}>{getStops()}</h2>
+        <span className={styles['content']}>{stops.join(', ')}</span>
       </span>
     </div>
   );

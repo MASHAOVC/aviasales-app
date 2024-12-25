@@ -6,7 +6,6 @@ import TicketsListButton from '../tickets-list-button';
 
 export const TicketsList = () => {
   const tickets = useSelector((state) => state.tickets.tickets);
-  console.log(tickets);
 
   return (
     <div className={styles['tickets-list']}>

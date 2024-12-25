@@ -18,7 +18,7 @@ export const ticketsReducer = (state = initialState, action) => {
         ...state,
         tickets: {
           ...state.tickets,
-          ticketPack: action.payload.map((ticket) => ({ ...ticket, id: uuidv4() })),
+          ticketPack: [...state.tickets.ticketPack, ...action.payload.map((ticket) => ({ ...ticket, id: uuidv4() }))],
           loading: false,
           error: null,
         },

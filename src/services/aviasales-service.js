@@ -16,20 +16,21 @@ const getResource = async (url) => {
 };
 
 const getSearchId = async () => {
-  const result = await getResource('https://aviasales-test-api.kata.academy/search');
-
-  return result;
-};
-
-const getTickets = async () => {
-  const searchId = await getSearchId()
+  const result = await getResource('https://aviasales-test-api.kata.academy/search')
     .then((result) => result.searchId)
     .catch((error) => {
       console.error(error);
       throw new Error(`Could not fetch searchId`);
     });
 
-  const result = await getResource(`https://aviasales-test-api.kata.academy/tickets?searchId=${searchId}`);
+  return result;
+};
+
+const searchIdPromise = getSearchId();
+
+const getTickets = async () => {
+  const resolvedSearchId = await searchIdPromise;
+  const result = await getResource(`https://aviasales-test-api.kata.academy/tickets?searchId=${resolvedSearchId}`);
 
   return result;
 };

@@ -10,4 +10,11 @@ const mainReducer = combineReducers({
   tickets: ticketsReducer,
 });
 
-export const store = configureStore({ reducer: mainReducer });
+export const store = configureStore({
+  reducer: mainReducer,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      immutableCheck: false, // Отключить ImmutableStateInvariantMiddleware
+      serializableCheck: false, // Отключить SerializableStateInvariantMiddleware
+    }),
+});

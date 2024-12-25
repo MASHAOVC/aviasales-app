@@ -21,7 +21,10 @@ export const fetchTickets = () => {
           return false;
         });
 
-      if (stopFlag) break;
+      if (stopFlag) {
+        dispatch({ type: 'FETCH_TICKETS_COMPLETED' });
+        break;
+      }
     }
   };
 };

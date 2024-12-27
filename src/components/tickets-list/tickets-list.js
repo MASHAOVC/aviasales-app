@@ -1,6 +1,6 @@
 import styles from './tickets-list.module.scss';
 import { useSelector } from 'react-redux';
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { Spin, Alert } from 'antd';
 
 import Ticket from '../ticket';
@@ -19,8 +19,11 @@ export const TicketsList = () => {
   const filter = useSelector((state) => state.filter);
   const sorting = useSelector((state) => state.sorting);
 
-  const filteredTicketsList = filterTiketsList(tickets, filter);
-  const sortedTicketsList = sortTicketsList(filteredTicketsList, sorting.sorted);
+  const filteredTicketsList = useMemo(() => filterTiketsList(tickets, filter), [tickets, filter]);
+  const sortedTicketsList = useMemo(
+    () => sortTicketsList(filteredTicketsList, sorting.sorted),
+    [filteredTicketsList, sorting]
+  );
 
   if (sortedTicketsList.length === 0 && !loading) {
     return (

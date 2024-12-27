@@ -37,7 +37,9 @@ export const TicketsList = () => {
       {sortedTicketsList.slice(0, ticketsAmount).map((ticket) => {
         return <Ticket key={ticket.id} price={ticket.price} carrier={ticket.carrier} segments={ticket.segments} />;
       })}
-      {tickets.ticketPack.length > ticketsAmount && <TicketsListButton setticketsAmount={setticketsAmount} />}
+      {tickets.ticketPack.length > ticketsAmount && !loading && (
+        <TicketsListButton setticketsAmount={setticketsAmount} />
+      )}
     </div>
   );
 };

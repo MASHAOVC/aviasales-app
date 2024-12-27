@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from 'uuid';
 const initialState = {
   tickets: {
     ticketPack: [],
-    loading: false,
+    loading: true,
     error: null,
   },
 };

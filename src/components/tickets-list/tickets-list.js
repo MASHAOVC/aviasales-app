@@ -1,5 +1,6 @@
 import styles from './tickets-list.module.scss';
 import { useSelector } from 'react-redux';
+import { useState } from 'react';
 import { Spin, Alert } from 'antd';
 
 import Ticket from '../ticket';
@@ -9,11 +10,14 @@ import { filterTiketsList } from './filtration';
 import { sortTicketsList } from './sorting';
 
 export const TicketsList = () => {
+  const [ticketsAmount, setticketsAmount] = useState(5); // It could have been in Redux,
+  // but I decided to make it local
+  // because it is only used in this component.
+
   const tickets = useSelector((state) => state.tickets.tickets);
   const loading = useSelector((state) => state.tickets.tickets.loading);
   const filter = useSelector((state) => state.filter);
   const sorting = useSelector((state) => state.sorting);
-  console.log(filter, sorting);
 
   const filteredTicketsList = filterTiketsList(tickets, filter);
   const sortedTicketsList = sortTicketsList(filteredTicketsList, sorting.sorted);
@@ -30,10 +34,10 @@ export const TicketsList = () => {
   return (
     <div className={styles['tickets-list']}>
       {loading && <Spin />}
-      {sortedTicketsList.slice(0, 5).map((ticket) => {
+      {sortedTicketsList.slice(0, ticketsAmount).map((ticket) => {
         return <Ticket key={ticket.id} price={ticket.price} carrier={ticket.carrier} segments={ticket.segments} />;
       })}
-      <TicketsListButton />
+      <TicketsListButton setticketsAmount={setticketsAmount} />
     </div>
   );
 };

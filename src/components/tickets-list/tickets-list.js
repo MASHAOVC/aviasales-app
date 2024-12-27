@@ -22,7 +22,7 @@ export const TicketsList = () => {
   const filteredTicketsList = filterTiketsList(tickets, filter);
   const sortedTicketsList = sortTicketsList(filteredTicketsList, sorting.sorted);
 
-  if (sortedTicketsList.length === 0) {
+  if (sortedTicketsList.length === 0 && !loading) {
     return (
       <Alert
         message="Рейсов, подходящих под заданные фильтры, не найдено :("
